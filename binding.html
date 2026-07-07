@@ -28,7 +28,7 @@ figcaption{font-size:.9rem;color:var(--muted);margin-top:10px}
 details{border:1px solid var(--border);border-radius:8px;margin:0 0 8px;background:var(--card-bg)}summary{cursor:pointer;padding:12px 16px;font-weight:600;list-style:none}summary::-webkit-details-marker{display:none}
 summary::before{content:"▸";margin-right:10px;color:var(--muted);display:inline-block;transition:transform .15s}details[open] summary::before{transform:rotate(90deg)}
 .adbody{padding:0 16px 14px}
-.shape-fig{display:block;max-width:340px;margin:2px 0 12px;border:1px solid var(--border);border-radius:8px;padding:8px 10px;background:var(--fig-bg)}.adbody .shape-fig svg{width:100%;height:auto;display:block}</style></head><body><div class="banner">Preview · <b>Reading Binding Characterization Results</b> (PR #3597) · generated from the live MDX · docs.adaptyvbio.com/guides/binding-characterization</div><div class="wrap"><p class="eyebrow">Guides</p><h1>Reading Binding Characterization Results</h1><p class="desc">How the binding assay works, how to read a sensorgram, interpret kon, koff, and KD, judge fit quality, and recognize the common curve shapes in your characterization data.</p><p>A binding experiment answers three questions about every design you send us: <b>does it bind</b> the target, <b>how tightly</b>, and <b>how fast</b>. A characterization run resolves each interaction into three numbers (<code>kon</code>, <code>koff</code>, and <code>KD</code>) from a family of sensorgrams measured across a concentration series. This guide is the field manual for that output: how the assay produces the curve, what the curve is telling you, and how much to trust the fitted numbers.</p>
+.shape-fig{display:block;max-width:340px;margin:2px 0 12px;border:1px solid var(--border);border-radius:8px;padding:8px 10px;background:var(--fig-bg)}.adbody .shape-fig svg{width:100%;height:auto;display:block}.shape-grid{margin:0 0 22px}.sg-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}@media(max-width:640px){.sg-cards{grid-template-columns:repeat(2,1fr)}}.sg-card{border:1px solid var(--border);border-radius:9px;padding:7px 7px 5px;background:var(--fig-bg);cursor:pointer;transition:border-color .12s,box-shadow .12s}.sg-card svg{width:100%;height:auto;display:block}.sg-card span{display:block;font-size:11.5px;font-weight:600;text-align:center;margin-top:5px;color:var(--fg);line-height:1.25}.sg-card:hover{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}.shape-grid:not(:has(.sg-card:hover)) .sg-card[data-def="1"]{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}.sg-caption{margin-top:14px;border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:8px;padding:14px 16px;background:var(--card-bg);min-height:72px}.sg-caption .sg-cap{display:none}.shape-grid:not(:has(.sg-card:hover)) .sg-cap[data-def="1"]{display:block}.shape-grid:has(.sg-card[data-k="ideal"]:hover) .sg-cap[data-k="ideal"]{display:block}.shape-grid:has(.sg-card[data-k="no-plateau"]:hover) .sg-cap[data-k="no-plateau"]{display:block}.shape-grid:has(.sg-card[data-k="flat-dissoc"]:hover) .sg-cap[data-k="flat-dissoc"]{display:block}.shape-grid:has(.sg-card[data-k="square-wave"]:hover) .sg-cap[data-k="square-wave"]{display:block}.shape-grid:has(.sg-card[data-k="mass-transport"]:hover) .sg-cap[data-k="mass-transport"]{display:block}.shape-grid:has(.sg-card[data-k="biphasic"]:hover) .sg-cap[data-k="biphasic"]{display:block}.shape-grid:has(.sg-card[data-k="drift"]:hover) .sg-cap[data-k="drift"]{display:block}.shape-grid:has(.sg-card[data-k="super-stoich"]:hover) .sg-cap[data-k="super-stoich"]{display:block}</style></head><body><div class="banner">Preview · <b>Reading Binding Characterization Results</b> (PR #3597) · generated from the live MDX · docs.adaptyvbio.com/guides/binding-characterization</div><div class="wrap"><p class="eyebrow">Guides</p><h1>Reading Binding Characterization Results</h1><p class="desc">How the binding assay works, how to read a sensorgram, interpret kon, koff, and KD, judge fit quality, and recognize the common curve shapes in your characterization data.</p><p>A binding experiment answers three questions about every design you send us: <b>does it bind</b> the target, <b>how tightly</b>, and <b>how fast</b>. A characterization run resolves each interaction into three numbers (<code>kon</code>, <code>koff</code>, and <code>KD</code>) from a family of sensorgrams measured across a concentration series. This guide is the field manual for that output: how the assay produces the curve, what the curve is telling you, and how much to trust the fitted numbers.</p>
 <p>It sits alongside the <a href="/docs/experiment-types/binding">Binding experiment overview</a> and the <a href="/docs/experiment-setup/binding-data-package">Binding Data Package</a> reference, which documents every file in your download.</p>
 <h2>How the assay works</h2>
 <p>We measure binding with <b>biolayer interferometry (BLI)</b> on a Gator Bio Pro, and <b>surface plasmon resonance (SPR)</b> on a Carterra LSA XT. Both are <b>label-free</b> (nothing is attached to the target to make it visible) and both produce the same readout. We pick the platform that fits the campaign, leaning on SPR as the higher-throughput option for larger sample sets and BLI for smaller ones.</p>
@@ -5020,7 +5020,7 @@ z
 <ul><li><b>Confidence intervals.</b> Each rate carries a 95% CI. Tight, symmetric intervals (a few percent of the value) mean the fit is well-constrained. A CI that spans an order of magnitude means the data don't pin that parameter down, so treat the number as indicative, not quantitative.</li><li><b>Fit error (MAE).</b> The mean absolute error between the modelled and measured curves, reported per replicate. Low MAE relative to the signal is good. The stronger test is the <b>residuals</b>: plot model-minus-data and you want flat, random noise around zero. Systematic structure, like a bowed or S-shaped residual, means the model isn't capturing what the surface actually did.</li><li><b>Rmax.</b> The estimated maximum response, i.e. a fully-loaded surface. A physically sensible <code>Rmax</code> should agree with the <b>theoretical Rmax</b> the surface can support: <code>Rmax(theoretical) = (analyte MW / ligand MW) × immobilized ligand level × binding sites per ligand</code>. In practice the measured <code>Rmax</code> usually lands around <b>30–70%</b> of that value. A measured <code>Rmax</code> far <b>below</b> theoretical (a few percent of predicted, in the worst cases) points to a misfolded or aggregating surface; an <code>Rmax</code> <b>above</b> theoretical points to non-specific binding, analyte aggregation, or an association phase that never curved enough to constrain the fit.</li><li><b>Range.</b> We reliably quantify <code>KD</code> from roughly <b>0.1 nM to 10 µM</b>. Outside that window a value may be reported as a bound (see below) rather than a point estimate.</li></ul>
 <h2>Common curve shapes</h2>
 <p>Most designs give a clean 1:1 curve. When they don't, the shape tells you why, and whether the fitted <code>KD</code> still means what you think. Use this as a lookup.</p>
-<details open><summary>Ideal 1:1 (Langmuir)</summary><div class="adbody"><span class="shape-fig"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<div class="shape-grid"><div class="sg-cards"><div class="sg-card" data-k="ideal" data-def="1"><?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg style="width:100%;height:auto;display:block" xmlns:xlink="http://www.w3.org/1999/xlink" width="265.6pt" height="118pt" viewBox="0 0 265.6 118" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -5425,9 +5425,7 @@ z
   </clipPath>
  </defs>
 </svg>
-</span>
-    Smooth exponential rise to a clear plateau during association; smooth single-exponential decay during dissociation; curves fan out cleanly by concentration. Residuals are flat noise. <b>Trust the numbers</b>: this is the case the fit is built for.</div></details>
-<details><summary>Never reaches plateau</summary><div class="adbody"><span class="shape-fig"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<span>Ideal 1:1 (Langmuir)</span></div><div class="sg-card" data-k="no-plateau"><?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg style="width:100%;height:auto;display:block" xmlns:xlink="http://www.w3.org/1999/xlink" width="265.6pt" height="118pt" viewBox="0 0 265.6 118" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -5783,9 +5781,7 @@ z
   </clipPath>
  </defs>
 </svg>
-</span>
-    Association is still climbing when the injection ends, with no curvature. Either <code>kon</code> is slow or every concentration sits below <code>KD</code>. The fit can still work if dissociation is well-defined, but <code>KD</code> leans on extrapolation; widen the concentration range to tighten it.</div></details>
-<details><summary>Flat dissociation (no come-off)</summary><div class="adbody"><span class="shape-fig"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<span>Never reaches plateau</span></div><div class="sg-card" data-k="flat-dissoc"><?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg style="width:100%;height:auto;display:block" xmlns:xlink="http://www.w3.org/1999/xlink" width="265.6pt" height="118pt" viewBox="0 0 265.6 118" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -6127,9 +6123,7 @@ z
   </clipPath>
  </defs>
 </svg>
-</span>
-    The decay barely drops within the dissociation window. The target essentially doesn't let go. <code>koff</code> is slower than the experiment can measure, so it (and therefore <code>KD</code>) is reported as an <b>upper bound</b>: "≤" a value, not "=". Typical of very tight binders. Longer dissociation times can pull it into range.</div></details>
-<details><summary>Fast-on / fast-off (square wave)</summary><div class="adbody"><span class="shape-fig"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<span>Flat dissociation (no come-off)</span></div><div class="sg-card" data-k="square-wave"><?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg style="width:100%;height:auto;display:block" xmlns:xlink="http://www.w3.org/1999/xlink" width="265.6pt" height="118pt" viewBox="0 0 265.6 118" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -6508,9 +6502,7 @@ z
   </clipPath>
  </defs>
 </svg>
-</span>
-    Rapid rise, low plateau, rapid return to baseline the instant buffer flows. A weak, fast-equilibrating interaction where the kinetics are too fast to resolve. Here <b>steady-state (equilibrium) analysis</b> (response at plateau vs. concentration) gives a more reliable <code>KD</code> than the kinetic fit.</div></details>
-<details><summary>Mass-transport limitation</summary><div class="adbody"><span class="shape-fig"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<span>Fast-on / fast-off (square wave)</span></div><div class="sg-card" data-k="mass-transport"><?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg style="width:100%;height:auto;display:block" xmlns:xlink="http://www.w3.org/1999/xlink" width="265.6pt" height="118pt" viewBox="0 0 265.6 118" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -6811,9 +6803,7 @@ z
   </clipPath>
  </defs>
 </svg>
-</span>
-    Association looks oddly linear instead of exponential because target is binding faster than flow can replenish it at the surface. This <b>underestimates <code>kon</code></b>. Diagnostic: apparent <code>kon</code> changes with flow rate. We mitigate it with lower ligand density and higher flow; if it persists we flag the affected fits.</div></details>
-<details><summary>Biphasic / heterogeneous</summary><div class="adbody"><span class="shape-fig"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<span>Mass-transport limitation</span></div><div class="sg-card" data-k="biphasic"><?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg style="width:100%;height:auto;display:block" xmlns:xlink="http://www.w3.org/1999/xlink" width="265.6pt" height="118pt" viewBox="0 0 265.6 118" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -7166,9 +7156,7 @@ z
   </clipPath>
  </defs>
 </svg>
-</span>
-    Two visibly different phases: a fast then a slow component in the association or (more often) the dissociation. Points to avidity, a heterogeneous or partly-misfolded ligand population, a conformational change, or aggregation. A 1:1 fit will show systematic residuals; we report these with caveats and, where it helps, an alternative model.</div></details>
-<details><summary>Non-specific binding / drift</summary><div class="adbody"><span class="shape-fig"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<span>Biphasic / heterogeneous</span></div><div class="sg-card" data-k="drift"><?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg style="width:100%;height:auto;display:block" xmlns:xlink="http://www.w3.org/1999/xlink" width="265.6pt" height="118pt" viewBox="0 0 265.6 118" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -7473,9 +7461,7 @@ z
   </clipPath>
  </defs>
 </svg>
-</span>
-    Signal keeps drifting upward during dissociation, or the reference channel itself responds. A "sticky" analyte or surface inflates apparent binding. Reference and blank (buffer) subtraction remove most of it; a curve that survives subtraction is real.</div></details>
-<details><summary>Super-stoichiometric (aggregation)</summary><div class="adbody"><span class="shape-fig"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<span>Non-specific binding / drift</span></div><div class="sg-card" data-k="super-stoich"><?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg style="width:100%;height:auto;display:block" xmlns:xlink="http://www.w3.org/1999/xlink" width="265.6pt" height="118pt" viewBox="0 0 265.6 118" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -7940,8 +7926,7 @@ z
   </clipPath>
  </defs>
 </svg>
-</span>
-    Response climbs past a sensible <code>Rmax</code> without saturating, because more mass lands than a monolayer of target should allow, usually from analyte self-association at the surface. The <code>KD</code> from a 1:1 fit is unreliable; cleaner material or lower concentrations are the fix.</div></details>
+<span>Super-stoichiometric (aggregation)</span></div></div><div class="sg-caption"><div class="sg-cap" data-k="ideal" data-def="1"><b>Ideal 1:1 (Langmuir).</b> Smooth exponential rise to a clear plateau during association; smooth single-exponential decay during dissociation; curves fan out cleanly by concentration. Residuals are flat noise. <b>Trust the numbers</b>: this is the case the fit is built for.</div><div class="sg-cap" data-k="no-plateau"><b>Never reaches plateau.</b> Association is still climbing when the injection ends, with no curvature. Either <code>kon</code> is slow or every concentration sits below <code>KD</code>. The fit can still work if dissociation is well-defined, but <code>KD</code> leans on extrapolation; widen the concentration range to tighten it.</div><div class="sg-cap" data-k="flat-dissoc"><b>Flat dissociation (no come-off).</b> The decay barely drops within the dissociation window. The target essentially doesn't let go. <code>koff</code> is slower than the experiment can measure, so it (and therefore <code>KD</code>) is reported as an <b>upper bound</b>: "≤" a value, not "=". Typical of very tight binders. Longer dissociation times can pull it into range.</div><div class="sg-cap" data-k="square-wave"><b>Fast-on / fast-off (square wave).</b> Rapid rise, low plateau, rapid return to baseline the instant buffer flows. A weak, fast-equilibrating interaction where the kinetics are too fast to resolve. Here <b>steady-state (equilibrium) analysis</b> (response at plateau vs. concentration) gives a more reliable <code>KD</code> than the kinetic fit.</div><div class="sg-cap" data-k="mass-transport"><b>Mass-transport limitation.</b> Association looks oddly linear instead of exponential because target is binding faster than flow can replenish it at the surface. This <b>underestimates <code>kon</code></b>. Diagnostic: apparent <code>kon</code> changes with flow rate. We mitigate it with lower ligand density and higher flow; if it persists we flag the affected fits.</div><div class="sg-cap" data-k="biphasic"><b>Biphasic / heterogeneous.</b> Two visibly different phases: a fast then a slow component in the association or (more often) the dissociation. Points to avidity, a heterogeneous or partly-misfolded ligand population, a conformational change, or aggregation. A 1:1 fit will show systematic residuals; we report these with caveats and, where it helps, an alternative model.</div><div class="sg-cap" data-k="drift"><b>Non-specific binding / drift.</b> Signal keeps drifting upward during dissociation, or the reference channel itself responds. A "sticky" analyte or surface inflates apparent binding. Reference and blank (buffer) subtraction remove most of it; a curve that survives subtraction is real.</div><div class="sg-cap" data-k="super-stoich"><b>Super-stoichiometric (aggregation).</b> Response climbs past a sensible <code>Rmax</code> without saturating, because more mass lands than a monolayer of target should allow, usually from analyte self-association at the surface. The <code>KD</code> from a 1:1 fit is unreliable; cleaner material or lower concentrations are the fix.</div></div></div>
 <div class="box tip"><p>Before quoting a <code>KD</code>, glance at the sensorgram PNG in your data package and match it to one of the shapes above. Ninety seconds of eyeballing catches the cases where a number is technically fitted but not trustworthy.</p></div>
 <h2>When the curve isn't 1:1</h2>
 <p>Most designs fit a clean 1:1 model, but real designed binders often don't, and the reason usually matters more than the number. The two you'll meet most are <b>avidity</b> and <b>aggregation</b>. We fit a 1:1 model first; when the shape rejects it, we fit alternative models (bivalent, conformational), and when a curve can't be trusted at all we report the binder as a ranked hit <b>without</b> a <code>KD</code> rather than quote a number we don't believe.</p>
