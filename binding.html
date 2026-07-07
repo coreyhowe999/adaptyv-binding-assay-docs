@@ -1,4 +1,4 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Binding — preview</title><style>
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Reading Binding Characterization Results (preview)</title><style>
 :root{--bg:#fff;--fg:#1a1f2b;--muted:#5b6472;--border:#e6e8ec;--code-bg:#f4f5f7;--code-fg:#b3266b;--accent:#3b6cf0;--callout-bg:#f0f4ff;--callout-br:#3b6cf0;--tip-bg:#eefaf1;--tip-br:#1faa5a;--card-bg:#fafbfc;--fig-bg:#fff;--banner-bg:#f7f8fa}
 @media(prefers-color-scheme:dark){:root{--bg:#0f1117;--fg:#e7e9ee;--muted:#9aa4b2;--border:#242833;--code-bg:#1b1f2a;--code-fg:#ff7ab6;--accent:#6c95ff;--callout-bg:#161e33;--callout-br:#6c95ff;--tip-bg:#132a1e;--tip-br:#35c97e;--card-bg:#151924;--fig-bg:#f6f7f8;--banner-bg:#141824}}
 :root[data-theme=light]{--bg:#fff;--fg:#1a1f2b;--muted:#5b6472;--border:#e6e8ec;--code-bg:#f4f5f7;--code-fg:#b3266b;--accent:#3b6cf0;--callout-bg:#f0f4ff;--callout-br:#3b6cf0;--tip-bg:#eefaf1;--tip-br:#1faa5a;--card-bg:#fafbfc;--fig-bg:#fff;--banner-bg:#f7f8fa}
@@ -35,10 +35,10 @@ summary::before{content:"\25B8";margin-right:10px;color:var(--muted);display:inl
 <h1>Reading Binding Characterization Results</h1>
 <p class="desc">How the binding assay works, how to read a sensorgram, interpret k<sub>on</sub>, k<sub>off</sub>, and K<sub>D</sub>, judge fit quality, and recognize the common curve shapes in your characterization data.</p>
 
-<p>A binding experiment answers three questions about every design you send us: <b>does it bind</b> the target, <b>how tightly</b>, and <b>how fast</b>. A characterization run resolves each interaction into three numbers — <code>kon</code>, <code>koff</code>, and <code>KD</code> — from a family of sensorgrams measured across a concentration series. This guide is the field manual for that output: how the assay produces the curve, what the curve is telling you, how much to trust the fitted numbers, and how to recognize the shapes that mean "look closer."</p>
+<p>A binding experiment answers three questions about every design you send us: <b>does it bind</b> the target, <b>how tightly</b>, and <b>how fast</b>. A characterization run resolves each interaction into three numbers (<code>kon</code>, <code>koff</code>, and <code>KD</code>) from a family of sensorgrams measured across a concentration series. This guide is the field manual for that output: how the assay produces the curve, what the curve is telling you, how much to trust the fitted numbers, and how to recognize the shapes that mean "look closer."</p>
 
 <h2>How the assay works</h2>
-<p>We measure binding with <b>biolayer interferometry (BLI)</b> on a Gator Bio Pro, and <b>surface plasmon resonance (SPR)</b> on a Carterra LSA XT. Both are <b>label-free</b> — nothing is attached to the target to make it visible — and both produce the same readout. We pick the platform that fits the campaign, leaning on SPR as the higher-throughput option for larger sample sets and BLI for smaller ones.</p>
+<p>We measure binding with <b>biolayer interferometry (BLI)</b> on a Gator Bio Pro, and <b>surface plasmon resonance (SPR)</b> on a Carterra LSA XT. Both are <b>label-free</b> (nothing is attached to the target to make it visible) and both produce the same readout. We pick the platform that fits the campaign, leaning on SPR as the higher-throughput option for larger sample sets and BLI for smaller ones.</p>
 <figure><svg style="width:100%;height:auto;display:block" viewBox="0 0 792 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="What happens at the sensor: your protein immobilized on the biosensor surface with target flowing over it; more target stays bound as binding strength increases (no, moderate, strong binding).">
 <rect x="0.5" y="0.5" width="791" height="319" rx="14" fill="#ffffff" stroke="#e6e8ec" stroke-width="1"/>
 <circle cx="28" cy="26" r="7" fill="#2f8f5b"/><text x="41" y="30" font-family="Inter,sans-serif" font-size="13" fill="#3f4a44">Your protein (binder), immobilized</text>
@@ -58,16 +58,16 @@ summary::before{content:"\25B8";margin-right:10px;color:var(--muted);display:inl
     <line x1="22" y1="24" x2="214" y2="24" stroke="#9aa39c" stroke-width="1.4" stroke-dasharray="5 5" marker-end="url(#flc)"></line>
     <text x="22" y="16" font-family="Inter,sans-serif" font-size="9.5" fill="#5b6472">target flows across</text><circle cx="78" cy="27" r="6" fill="#58b57e" opacity="0.28"></circle><circle cx="158" cy="29" r="6" fill="#58b57e" opacity="0.28"></circle><rect x="14" y="170" width="212" height="9" rx="3" fill="#dfe3df"></rect><rect x="14" y="170" width="212" height="2.4" rx="1.2" fill="#8a918b"></rect><rect x="29.7" y="140" width="4" height="32" rx="2" fill="#6f766f"></rect><path d="M 19.7 138 Q 31.7 154 43.7 138" fill="none" stroke="#6f766f" stroke-width="4" stroke-linecap="round"></path><circle cx="31.7" cy="129" r="10" fill="#2f8f5b"></circle><circle cx="28.7" cy="125" r="3" fill="#ffffff" opacity="0.32"></circle><rect x="65.0" y="140" width="4" height="32" rx="2" fill="#6f766f"></rect><path d="M 55.0 138 Q 67 154 79.0 138" fill="none" stroke="#6f766f" stroke-width="4" stroke-linecap="round"></path><circle cx="67" cy="129" r="10" fill="#2f8f5b"></circle><circle cx="64.0" cy="125" r="3" fill="#ffffff" opacity="0.32"></circle><rect x="100.3" y="140" width="4" height="32" rx="2" fill="#6f766f"></rect><path d="M 90.3 138 Q 102.3 154 114.3 138" fill="none" stroke="#6f766f" stroke-width="4" stroke-linecap="round"></path><circle cx="102.3" cy="129" r="10" fill="#2f8f5b"></circle><circle cx="99.3" cy="125" r="3" fill="#ffffff" opacity="0.32"></circle><rect x="135.7" y="140" width="4" height="32" rx="2" fill="#6f766f"></rect><path d="M 125.7 138 Q 137.7 154 149.7 138" fill="none" stroke="#6f766f" stroke-width="4" stroke-linecap="round"></path><circle cx="137.7" cy="129" r="10" fill="#2f8f5b"></circle><circle cx="134.7" cy="125" r="3" fill="#ffffff" opacity="0.32"></circle><rect x="171.0" y="140" width="4" height="32" rx="2" fill="#6f766f"></rect><path d="M 161.0 138 Q 173 154 185.0 138" fill="none" stroke="#6f766f" stroke-width="4" stroke-linecap="round"></path><circle cx="167.0" cy="73" r="9" fill="#58b57e" opacity="0.9"></circle><circle cx="164.0" cy="70" r="2.6" fill="#ffffff" opacity="0.3"></circle><rect x="206.3" y="140" width="4" height="32" rx="2" fill="#6f766f"></rect><path d="M 196.3 138 Q 208.3 154 220.3 138" fill="none" stroke="#6f766f" stroke-width="4" stroke-linecap="round"></path><circle cx="208.3" cy="129" r="10" fill="#2f8f5b"></circle><circle cx="205.3" cy="125" r="3" fill="#ffffff" opacity="0.32"></circle></svg>
 <text x="684.0" y="280" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#1a1f2b">Strong binding</text>
-</svg><figcaption>What happens at the sensor: your protein is immobilized on the biosensor surface while the target flows over it. The more target that stays bound, the stronger the interaction — from no binding to strong.</figcaption></figure>
+</svg><figcaption>What happens at the sensor: your protein is immobilized on the biosensor surface while the target flows over it. The more target that stays bound, the stronger the interaction, from no binding to strong.</figcaption></figure>
 <ol class="steps">
-<li><span class="st">Your protein goes on the sensor</span>We express each design with two C-terminal tags: a <b>split-GFP fragment</b> (for expression quantification), followed by a <b>Twin-Strep-Tag</b> that anchors it to the biosensor surface facing outward — <code>RDHMVLHEYVNAAGITGGGSGGGSGGSAWSHPQFEKGGGSGGGSGGSAWSHPQFEK</code>. Your protein is the <b>ligand</b>.</li>
-<li><span class="st">The target flows over it</span>The sensor is exposed to the target protein — the <b>analyte</b> — at known concentrations. If your design recognizes the target, the two associate at the surface.</li>
+<li><span class="st">Your protein goes on the sensor</span>We express each design with two C-terminal tags: a <b>split-GFP fragment</b> (for expression quantification), followed by a <b>Twin-Strep-Tag</b> that anchors it to the biosensor surface facing outward. The full C-terminal tag is <code>RDHMVLHEYVNAAGITGGGSGGGSGGSAWSHPQFEKGGGSGGGSGGSAWSHPQFEK</code>, and your protein is the <b>ligand</b>.</li>
+<li><span class="st">The target flows over it</span>The sensor is exposed to the target protein (the <b>analyte</b>) at known concentrations. If your design recognizes the target, the two associate at the surface.</li>
 <li><span class="st">We watch binding in real time</span>Bound target adds mass at the surface, which shifts the optical signal. We record that shift continuously, with no endpoint and no wash-and-read.</li>
 <li><span class="st">Then we let it fall off</span>Switching exposure to just the buffer solution lets bound target dissociate. The climb and the decay together form the binding curve below.</li>
 </ol>
 
 <h2>Anatomy of a sensorgram</h2>
-<p>A sensorgram plots <b>response</b> (mass bound at the sensor surface, in nm for BLI or RU for SPR) against <b>time</b>. One characterization run overlays several curves — one per target concentration — fitted together as a single family.</p>
+<p>A sensorgram plots <b>response</b> (mass bound at the sensor surface, in nm for BLI or RU for SPR) against <b>time</b>. One characterization run overlays several curves, one per target concentration, fitted together as a single family.</p>
 <figure class="fig"><?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
@@ -5002,25 +5002,25 @@ z
  </defs>
 </svg>
 
-<figcaption>Reading a sensorgram — a real characterization run (designed anti-PDGFR-β binder, K<sub>D</sub> ≈ 12 nM) across five concentrations (10 nM–1 µM). Higher concentrations (darker) climb faster and plateau higher during association; during dissociation the target washes off in buffer. Data via ProteinBase.</figcaption>
+<figcaption>Reading a sensorgram: a real characterization run (designed anti-PDGFR-β binder, K<sub>D</sub> ≈ 12 nM) across five concentrations (10 nM–1 µM). Higher concentrations (darker) climb faster and plateau higher during association; during dissociation the target washes off in buffer. Data via ProteinBase.</figcaption>
 </figure>
 <p>Read each curve left to right in four phases:</p>
 <ol>
-<li><b>Baseline</b> — sensor in buffer, no target. This is your zero.</li>
-<li><b>Association</b> — target is flowing on. Response climbs as target binds your surface-anchored protein. Higher concentrations climb <b>faster</b> and toward a <b>higher</b> plateau.</li>
-<li><b>Approach to steady state</b> — the climb curves over as binding and unbinding reach balance. Whether a curve reaches its plateau depends on concentration, <code>kon</code>, and how long the injection runs.</li>
-<li><b>Dissociation</b> — flow switches to buffer only. No fresh target arrives, so bound target falls off and the response decays.</li>
+<li><b>Baseline.</b> Sensor in buffer, no target. This is your zero.</li>
+<li><b>Association.</b> Target is flowing on. Response climbs as target binds your surface-anchored protein. Higher concentrations climb <b>faster</b> and toward a <b>higher</b> plateau.</li>
+<li><b>Approach to steady state.</b> The climb curves over as binding and unbinding reach balance. Whether a curve reaches its plateau depends on concentration, <code>kon</code>, and how long the injection runs.</li>
+<li><b>Dissociation.</b> Flow switches to buffer only. No fresh target arrives, so bound target falls off and the response decays.</li>
 </ol>
-<div class="box callout"><p>The information lives in the <b>shape</b>, not the height. The steepness of the climb encodes <code>kon</code>, the steepness of the decay encodes <code>koff</code>, and the concentration-dependent spacing between curves is what lets a global fit separate the two. A single concentration can't — which is why characterization runs 5–7 points spanning orders of magnitude.</p></div>
+<div class="box callout"><p>The information lives in the <b>shape</b>, not the height. The steepness of the climb encodes <code>kon</code>, the steepness of the decay encodes <code>koff</code>, and the concentration-dependent spacing between curves is what lets a global fit separate the two. A single concentration can't. That's why characterization runs 5–7 points spanning orders of magnitude.</p></div>
 
 <h2>The three numbers</h2>
-<p>Three numbers come out of the fit. The first two describe <b>speed</b>; the third — the one most people quote — describes <b>strength</b>.</p>
+<p>Three numbers come out of the fit. The first two describe <b>speed</b>; the third, the one most people quote, describes <b>strength</b>.</p>
 <div class="scroll"><table><thead><tr><th></th><th>What it is</th><th>How to read it</th></tr></thead><tbody>
-<tr><td><code>kon</code></td><td><b>Association rate</b> — how quickly the target finds and binds your protein</td><td>The slope of the climb</td></tr>
-<tr><td><code>koff</code></td><td><b>Dissociation rate</b> — how quickly it lets go once bound</td><td>The slope of the decay. A slow <code>koff</code> often matters more than a fast <code>kon</code></td></tr>
-<tr><td><code>KD</code></td><td><b>Binding affinity</b> = <code>koff</code>/<code>kon</code> — the concentration at which half your protein is occupied</td><td>Lower is tighter: a 1 nM binder is 1000× stronger than a 1 µM one</td></tr>
+<tr><td><code>kon</code></td><td><b>Association rate</b>: how quickly the target finds and binds your protein</td><td>The slope of the climb</td></tr>
+<tr><td><code>koff</code></td><td><b>Dissociation rate</b>: how quickly it lets go once bound</td><td>The slope of the decay. A slow <code>koff</code> often matters more than a fast <code>kon</code></td></tr>
+<tr><td><code>KD</code></td><td><b>Binding affinity</b> = <code>koff</code>/<code>kon</code>, the concentration at which half your protein is occupied</td><td>Lower is tighter: a 1 nM binder is 1000× stronger than a 1 µM one</td></tr>
 </tbody></table></div>
-<div class="box callout"><p>Two designs can land on the <b>same</b> <code>KD</code> by very different routes: one fast-on/fast-off, the other slow-on/slow-off. That's why we report the rates, not just the affinity — they often behave differently in your application.</p></div>
+<div class="box callout"><p>Two designs can land on the <b>same</b> <code>KD</code> by very different routes: one fast-on/fast-off, the other slow-on/slow-off. That's why we report the rates, not just the affinity, since they often behave differently in your application.</p></div>
 <div class="box tip"><p><code>koff</code> is usually the more decision-relevant rate. Read it directly off the dissociation phase: a curve that barely comes down has a slow <code>koff</code> and a long residence time, regardless of how fast it went on.</p></div>
 
 <h2>Screening and characterization</h2>
@@ -5032,7 +5032,7 @@ z
 <tr><td><b>Best for</b></td><td>Triaging large libraries, down-selection</td><td>Lead optimization, benchmarking, mechanism studies</td></tr>
 <tr><td><b>The question</b></td><td>Which of my designs bind?</td><td>Exactly how good is my best one?</td></tr>
 </tbody></table></div>
-<p>Why the extra concentrations matter: a single point can be explained by many curves, but a series spanning several concentrations constrains the fit and lets us separate <code>kon</code> from <code>koff</code> — which is why a characterization <code>KD</code> is trustworthy where a screening estimate is only indicative.</p>
+<p>Why the extra concentrations matter: a single point can be explained by many curves, but a series spanning several concentrations constrains the fit and lets us separate <code>kon</code> from <code>koff</code>. That's why a characterization <code>KD</code> is trustworthy where a screening estimate is only indicative.</p>
 
 <h2>Reading your results</h2>
 <p>Every measured design gets a <b>binding call</b>. How its strength is reported then depends on the depth you ran: a quick bucket from <b>screening</b>, or precise kinetics from <b>characterization</b>.</p>
@@ -5040,10 +5040,10 @@ z
 <div class="scroll"><table><thead><tr><th>Call</th><th>What it means</th></tr></thead><tbody>
 <tr><td><b>True</b></td><td>A clear binder: signal rises distinctly above the controls.</td></tr>
 <tr><td><b>False</b></td><td>The protein expressed, but binding sits at or below control signals. No interaction detected.</td></tr>
-<tr><td><b>Unknown</b></td><td>We couldn't make the call — usually no/low expression, or signals too marginal to trust.</td></tr>
+<tr><td><b>Unknown</b></td><td>We couldn't make the call, usually because of no/low expression or signals too marginal to trust.</td></tr>
 </tbody></table></div>
 <h3>How strong? From a screening run</h3>
-<p>Screening sorts each binder into one of three affinity buckets — enough to rank a library and decide what to pursue.</p>
+<p>Screening sorts each binder into one of three affinity buckets, enough to rank a library and decide what to pursue.</p>
 <div class="scroll"><table><thead><tr><th>Bucket</th><th>Range</th></tr></thead><tbody>
 <tr><td><b>Strong</b></td><td><code>KD</code> &lt; 50 nM</td></tr><tr><td><b>Moderate</b></td><td>50 nM – 1 µM</td></tr><tr><td><b>Weak</b></td><td>&gt; 1 µM</td></tr>
 </tbody></table></div>
@@ -5057,24 +5057,24 @@ z
 <div class="box callout"><p>Binding depends on expression. We can only measure binding for protein that actually made it onto the sensor. If a design expresses poorly, signal-to-noise drops and you may get an <b>Unknown</b> rather than a <code>KD</code>. Confirming expression first is the surest way to get clean binding data back.</p></div>
 
 <h2>Judging fit quality</h2>
-<p>The fitted numbers are only as good as the fit they came from. Every characterization result ships with diagnostics — in the portal and in the <code>fit_data/</code> folder of your data package — so you can judge each one yourself. Four things to check:</p>
+<p>The fitted numbers are only as good as the fit they came from. Every characterization result ships with diagnostics, both in the portal and in the <code>fit_data/</code> folder of your data package, so you can judge each one yourself. Four things to check:</p>
 <ul>
-<li><b>Confidence intervals.</b> Each rate carries a 95% CI. Tight, symmetric intervals (a few percent of the value) mean the fit is well-constrained. A CI spanning an order of magnitude means the data don't pin that parameter down — treat it as indicative, not quantitative.</li>
-<li><b>Fit error (MAE).</b> The mean absolute error between modelled and measured curves, per replicate. The stronger test is the <b>residuals</b>: model-minus-data should be flat, random noise around zero. Systematic structure — a bowed or S-shaped residual — means the model isn't capturing what the surface did.</li>
+<li><b>Confidence intervals.</b> Each rate carries a 95% CI. Tight, symmetric intervals (a few percent of the value) mean the fit is well-constrained. A CI spanning an order of magnitude means the data don't pin that parameter down, so treat it as indicative, not quantitative.</li>
+<li><b>Fit error (MAE).</b> The mean absolute error between modelled and measured curves, per replicate. The stronger test is the <b>residuals</b>: model-minus-data should be flat, random noise around zero. Systematic structure, like a bowed or S-shaped residual, means the model isn't capturing what the surface did.</li>
 <li><b>Rmax.</b> The estimated maximum response (a fully-loaded surface). A physically sensible <code>Rmax</code>, shared across the concentration series, is a good sign. An <code>Rmax</code> inflated far beyond the loading usually means it's compensating for a shape problem.</li>
 <li><b>Range.</b> We reliably quantify <code>KD</code> from roughly <b>0.1 nM to 10 µM</b>. Outside that window a value may be reported as a bound rather than a point estimate.</li>
 </ul>
 
 <h2>Common curve shapes</h2>
-<p>Most designs give a clean 1:1 curve. When they don't, the shape tells you why — and whether the fitted <code>KD</code> still means what you think. Use this as a lookup.</p>
-<details open><summary>Ideal 1:1 (Langmuir)</summary><div class="adbody">Smooth exponential rise to a clear plateau during association; smooth single-exponential decay during dissociation; curves fan out cleanly by concentration. Residuals are flat noise. <b>Trust the numbers</b> — this is the case the fit is built for.</div></details>
-<details><summary>Never reaches plateau</summary><div class="adbody">Association is still climbing when the injection ends — no curvature. Either <code>kon</code> is slow or every concentration sits below <code>KD</code>. The fit can still work if dissociation is well-defined, but <code>KD</code> leans on extrapolation; widen the concentration range to tighten it.</div></details>
-<details><summary>Flat dissociation (no come-off)</summary><div class="adbody">The decay barely drops within the dissociation window — the target essentially doesn't let go. <code>koff</code> is slower than the experiment can measure, so it (and <code>KD</code>) is reported as an <b>upper bound</b>: “≤” a value, not “=”. Typical of very tight binders. Longer dissociation times can pull it into range.</div></details>
-<details><summary>Fast-on / fast-off (square wave)</summary><div class="adbody">Rapid rise, low plateau, rapid return to baseline the instant buffer flows. A weak, fast-equilibrating interaction where the kinetics are too fast to resolve. Here <b>steady-state (equilibrium) analysis</b> — response at plateau vs. concentration — gives a more reliable <code>KD</code> than the kinetic fit.</div></details>
+<p>Most designs give a clean 1:1 curve. When they don't, the shape tells you why, and whether the fitted <code>KD</code> still means what you think. Use this as a lookup.</p>
+<details open><summary>Ideal 1:1 (Langmuir)</summary><div class="adbody">Smooth exponential rise to a clear plateau during association; smooth single-exponential decay during dissociation; curves fan out cleanly by concentration. Residuals are flat noise. <b>Trust the numbers</b>: this is the case the fit is built for.</div></details>
+<details><summary>Never reaches plateau</summary><div class="adbody">Association is still climbing when the injection ends, with no curvature. Either <code>kon</code> is slow or every concentration sits below <code>KD</code>. The fit can still work if dissociation is well-defined, but <code>KD</code> leans on extrapolation; widen the concentration range to tighten it.</div></details>
+<details><summary>Flat dissociation (no come-off)</summary><div class="adbody">The decay barely drops within the dissociation window. The target essentially doesn't let go. <code>koff</code> is slower than the experiment can measure, so it (and <code>KD</code>) is reported as an <b>upper bound</b>: “≤” a value, not “=”. Typical of very tight binders. Longer dissociation times can pull it into range.</div></details>
+<details><summary>Fast-on / fast-off (square wave)</summary><div class="adbody">Rapid rise, low plateau, rapid return to baseline the instant buffer flows. A weak, fast-equilibrating interaction where the kinetics are too fast to resolve. Here <b>steady-state (equilibrium) analysis</b> (response at plateau vs. concentration) gives a more reliable <code>KD</code> than the kinetic fit.</div></details>
 <details><summary>Mass-transport limitation</summary><div class="adbody">Association looks oddly linear instead of exponential because target binds faster than flow can replenish it at the surface. This <b>underestimates <code>kon</code></b>. Diagnostic: apparent <code>kon</code> changes with flow rate. We mitigate with lower ligand density and higher flow; if it persists we flag the affected fits.</div></details>
-<details><summary>Biphasic / heterogeneous</summary><div class="adbody">Two visibly different phases — a fast then a slow component in the association or (more often) the dissociation. Points to avidity, a heterogeneous or partly-misfolded ligand population, a conformational change, or aggregation. A 1:1 fit shows systematic residuals; we report these with caveats and, where it helps, an alternative model.</div></details>
+<details><summary>Biphasic / heterogeneous</summary><div class="adbody">Two visibly different phases: a fast then a slow component in the association or (more often) the dissociation. Points to avidity, a heterogeneous or partly-misfolded ligand population, a conformational change, or aggregation. A 1:1 fit shows systematic residuals; we report these with caveats and, where it helps, an alternative model.</div></details>
 <details><summary>Non-specific binding / drift</summary><div class="adbody">Signal keeps drifting upward during dissociation, or the reference channel itself responds. A “sticky” analyte or surface inflates apparent binding. Reference and blank (buffer) subtraction remove most of it; a curve that survives subtraction is real.</div></details>
-<details><summary>Super-stoichiometric (aggregation)</summary><div class="adbody">Response climbs past a sensible <code>Rmax</code> without saturating — more mass lands than a monolayer of target should allow, usually analyte self-association at the surface. The <code>KD</code> from a 1:1 fit is unreliable; cleaner material or lower concentrations are the fix.</div></details>
+<details><summary>Super-stoichiometric (aggregation)</summary><div class="adbody">Response climbs past a sensible <code>Rmax</code> without saturating, because more mass lands than a monolayer of target should allow, usually analyte self-association at the surface. The <code>KD</code> from a 1:1 fit is unreliable; cleaner material or lower concentrations are the fix.</div></details>
 <div class="box tip" style="margin-top:16px"><p>Before quoting a <code>KD</code>, glance at the sensorgram PNG in your data package and match it to one of the shapes above. Ninety seconds of eyeballing catches the cases where a number is technically fitted but not trustworthy.</p></div>
 
 <h2>What you get back</h2>
@@ -5087,16 +5087,16 @@ z
 </tbody></table></div>
 <div class="cards">
 <div class="card"><p class="t">Binding Data Package</p><p class="s">The full field guide to every folder and file in your download.</p></div>
-<div class="card"><p class="t">Expression</p><p class="s">Confirm expression and yield before binding — it's what makes clean curves possible.</p></div>
+<div class="card"><p class="t">Expression</p><p class="s">Confirm expression and yield before binding, since it's what makes clean curves possible.</p></div>
 </div>
 
 <h2>FAQs</h2>
 <details><summary>Why don't I always get a KD?</summary><div class="adbody">A <code>KD</code> requires enough of your protein on the sensor to give clean signal. If expression is none or low, signal-to-noise is too poor for a reliable fit, so the result comes back as <b>Unknown</b> rather than a number. Stronger expression yields cleaner curves and tighter fits.</div></details>
 <details><summary>What KD range can you quantify?</summary><div class="adbody">Roughly <b>0.1 nM to 10 µM</b>. Accuracy tapers at the extremes (very tight or very weak interactions are harder to pin down), but we can tune concentrations and contact times to bias the assay toward either end when you know what you're chasing.</div></details>
-<details><summary>How are the curves fitted?</summary><div class="adbody">We record response over time at 5 Hz and fit a 1:1 binding model. When several concentrations are run, we fit them together (<b>global fitting</b>) so a single <code>kon</code>/<code>koff</code> pair has to explain the whole family of curves — a much stronger constraint than fitting one trace alone.</div></details>
+<details><summary>How are the curves fitted?</summary><div class="adbody">We record response over time at 5 Hz and fit a 1:1 binding model. When several concentrations are run, we fit them together (<b>global fitting</b>) so a single <code>kon</code>/<code>koff</code> pair has to explain the whole family of curves, a much stronger constraint than fitting one trace alone.</div></details>
 <details><summary>Why do screening KDs differ from full characterization?</summary><div class="adbody">Screening uses only two concentrations to triage binders quickly, so its <code>KD</code> carries more uncertainty. Characterization runs a full series designed to resolve <code>kon</code>, <code>koff</code>, and <code>KD</code> precisely. Treat screening values as a ranking, not a measurement.</div></details>
 <details><summary>What about unusual or bi-phasic curves?</summary><div class="adbody">Curves that don't fit a clean 1:1 model can point to a multi-step mechanism, conformational change, or avidity. Relative rankings still hold, but resolving precise kinetics may need an expanded concentration series. We'll flag these when we see them.</div></details>
-<details><summary>How do you handle non-specific binding?</summary><div class="adbody">We screen new targets for non-specific binding (NSB) and adjust buffers or suppliers to suppress it. Heavy NSB can show up as negative-shift curves after reference subtraction — a tell we watch for during QC.</div></details>
+<details><summary>How do you handle non-specific binding?</summary><div class="adbody">We screen new targets for non-specific binding (NSB) and adjust buffers or suppliers to suppress it. Heavy NSB can show up as negative-shift curves after reference subtraction, a tell we watch for during QC.</div></details>
 <details><summary>Can you test specificity and cross-reactivity?</summary><div class="adbody">Yes. We run cross-reactivity and polyspecificity panels (e.g. BVP, BSA/HSA) to check how selective your binder is. Full-serum profiling is in development.</div></details>
 <details><summary>Do you offer competition or inhibition assays?</summary><div class="adbody">Yes. We run neutralization, inhibition, and competition formats (IC50 and epitope-access questions) on request.</div></details>
 
