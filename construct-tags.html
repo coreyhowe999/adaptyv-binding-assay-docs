@@ -1,4 +1,4 @@
-<title>Construct &amp; Tag Design — Adaptyv Docs (preview)</title>
+<title>Construct &amp; Tag Design: Adaptyv Docs (preview)</title>
 <style>
   :root{
     --paper:#FAFAF7; --surface:#FFFFFF; --ink:#17211F; --muted:#5C6663;
@@ -153,7 +153,7 @@
   <div class="crumb">Guides / <b>Construct &amp; Tag Design</b></div>
   <h1>Construct &amp; Tag Design</h1>
   <p class="lede">The standard tag construct we add to every binder for expression,
-    purification, and immobilization — what each part does, where it sits, and why it
+    purification, and immobilization: what each part does, where it sits, and why it
     stays clear of the binding site.</p>
   <div class="metaline">
     <span><span class="dot"></span> Reference</span>
@@ -163,14 +163,14 @@
 </div>
 
 <main><div class="wrap">
-  <p>You submit your binder as a <strong>bare sequence</strong> — no tags needed. Before
+  <p>You submit your binder as a <strong>bare sequence</strong> (no tags needed). Before
     expression, we append a standard tag construct that handles three jobs at once:
     <strong>expression quantification</strong>, <strong>purification</strong>, and
     <strong>immobilization</strong> on the assay instrument. This page shows exactly what
     we add, where it goes, and how we keep it away from the binding interface.</p>
 
   <div class="note info"><span class="ic">i</span><div><b>Nothing to do on your side.</b>
-    If you submitted sequences without tags, that's expected — we add them for you. The
+    If you submitted sequences without tags, that's expected. We add them for you. The
     only optional input is <strong>tag placement</strong> (C- vs N-terminus); see
     Placement below.</div></div>
 
@@ -199,7 +199,7 @@
     <thead><tr><th>Component</th><th>Sequence</th><th>Purpose</th></tr></thead>
     <tbody>
       <tr><td>GGGS linkers</td><td><code>GGGSGGGS…</code></td><td>Flexible spacers that decouple the tag from the folded domain</td></tr>
-      <tr><td>split-GFP11</td><td><code>RDHMVLHEYVNAAGIT</code></td><td>Expression quantification via split-GFP complementation — <strong>not</strong> used for purification</td></tr>
+      <tr><td>split-GFP11</td><td><code>RDHMVLHEYVNAAGIT</code></td><td>Expression quantification via split-GFP complementation (<strong>not</strong> used for purification)</td></tr>
       <tr><td>Twin-Strep-tag</td><td><code>GGSAWSHPQFEK</code> ×2</td><td>Purification <strong>and</strong> immobilization handle (two tandem Strep-tag II)</td></tr>
     </tbody>
   </table></div>
@@ -209,18 +209,18 @@
     On our platform, capture <em>is</em> the purification step.</div></div>
 
   <h2>Why these tags</h2>
-  <p><strong>Twin-Strep-tag</strong> — a high-affinity, well-behaved handle for
+  <p><strong>Twin-Strep-tag</strong>: a high-affinity, well-behaved handle for
     Strep-Tactin XT. We use it both to purify the binder and to immobilize it on the SPR
     sensor, so a single tag covers the whole workflow.</p>
-  <p><strong>split-GFP11</strong> — a small fragment that reconstitutes fluorescence with
-    a complementary GFP1–10 fragment, letting us <strong>quantify expression</strong>
+  <p><strong>split-GFP11</strong>: a small fragment that reconstitutes fluorescence with
+    a complementary GFP1-10 fragment, letting us <strong>quantify expression</strong>
     without a separate readout. See <a href="#">Split-GFP quantification</a> for the method.</p>
   <p>We <strong>do not cleave</strong> purification tags. Instead we choose placement (or
-    follow your preference) so the tag stays clear of the binding site — which is what the
+    follow your preference) so the tag stays clear of the binding site, which is what the
     structures below are for.</p>
 
   <h2>Tag placement</h2>
-  <p><strong>C-terminal is the default</strong> — in our hands it gives the most consistent
+  <p><strong>C-terminal is the default</strong>. In our hands it gives the most consistent
     expression across protein types. You can request <strong>N-terminal</strong> placement
     instead if the C-terminus is functionally important for your design; just flag it at
     submission.</p>
@@ -256,7 +256,7 @@
       coupling, and <strong>Strep-Tactin XT</strong> is covalently coupled to the surface.</li>
     <li><strong>Capture.</strong> Your Twin-Strep-tagged <strong>binder is captured onto the
       Strep-Tactin XT surface</strong> as the immobilized ligand. This capture step also
-      serves as the purification — no separate purification is required on our platform.</li>
+      serves as the purification: no separate purification is required on our platform.</li>
     <li><strong>Kinetics.</strong> The <strong>target is flowed over the captured binder as
       the analyte</strong> in a concentration series (single-cycle kinetics). Targets are
       delivered in solution and are <strong>not</strong> biotinylated.</li>
@@ -267,7 +267,7 @@
     random amine coupling of the binder itself.</div></div>
 
   <h2>What you need to do</h2>
-  <p>Nothing — we add the construct automatically. Optionally, at submission you may
+  <p>Nothing. We add the construct automatically. Optionally, at submission you may
     request <strong>N-terminal</strong> placement instead of the default C-terminal, or
     flag any design where the terminus is functionally critical so we can confirm placement.</p>
 
