@@ -28,7 +28,7 @@ figcaption{font-size:.9rem;color:var(--muted);margin-top:10px}
 details{border:1px solid var(--border);border-radius:8px;margin:0 0 8px;background:var(--card-bg)}summary{cursor:pointer;padding:12px 16px;font-weight:600;list-style:none}summary::-webkit-details-marker{display:none}
 summary::before{content:"▸";margin-right:10px;color:var(--muted);display:inline-block;transition:transform .15s}details[open] summary::before{transform:rotate(90deg)}
 .adbody{padding:0 16px 14px}
-.warning{background:#fdf6ec;border-left-color:#e0a52e}@media (prefers-color-scheme:dark){.warning{background:#2a2113;border-left-color:#d9a441}}:root[data-theme=dark] .warning{background:#2a2113;border-left-color:#d9a441}:root[data-theme=light] .warning{background:#fdf6ec;border-left-color:#e0a52e}.shape-fig{display:block;max-width:340px;margin:2px 0 12px;border:1px solid var(--border);border-radius:8px;padding:8px 10px;background:var(--fig-bg)}.adbody .shape-fig svg{width:100%;height:auto;display:block}.shape-grid{margin:0 0 22px}.sg-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}@media(max-width:640px){.sg-cards{grid-template-columns:repeat(2,1fr)}}.sg-card{border:2px solid var(--border);border-radius:10px;padding:7px 7px 5px;background:var(--fig-bg);cursor:pointer;transition:border-color .12s,box-shadow .12s,background .12s,transform .12s}.sg-card svg{width:100%;height:auto;display:block}.sg-card span{display:block;font-size:11.5px;font-weight:600;text-align:center;margin-top:5px;color:var(--muted);line-height:1.25}.sg-card.hl{border-color:var(--accent);background:var(--callout-bg);box-shadow:0 0 0 3px var(--accent);transform:translateY(-2px)}.sg-card.hl span{color:var(--accent)}.sg-card:hover{border-color:var(--accent);background:var(--callout-bg);box-shadow:0 0 0 3px var(--accent);transform:translateY(-2px)}.sg-card:hover span{color:var(--accent)}.shape-grid:not(:has(.sg-card:hover)) .sg-card[data-def="1"]{border-color:var(--accent);background:var(--callout-bg);box-shadow:0 0 0 3px var(--accent);transform:translateY(-2px)}.shape-grid:not(:has(.sg-card:hover)) .sg-card[data-def="1"] span{color:var(--accent)}.sg-caption{margin-top:16px;border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:8px;padding:14px 16px;background:var(--card-bg);min-height:72px}.sg-caption .sg-cap{display:none}.sg-sugg{display:block;margin-top:9px;padding-top:9px;border-top:1px solid var(--border);font-size:.93em}.sg-sugg strong{color:var(--accent)}.shape-grid:not(:has(.sg-card:hover)) .sg-cap[data-def="1"]{display:block}.shape-grid:has(.sg-card[data-k="ideal"]:hover) .sg-cap[data-k="ideal"]{display:block}.shape-grid:has(.sg-card[data-k="no-plateau"]:hover) .sg-cap[data-k="no-plateau"]{display:block}.shape-grid:has(.sg-card[data-k="flat-dissoc"]:hover) .sg-cap[data-k="flat-dissoc"]{display:block}.shape-grid:has(.sg-card[data-k="square-wave"]:hover) .sg-cap[data-k="square-wave"]{display:block}.shape-grid:has(.sg-card[data-k="mass-transport"]:hover) .sg-cap[data-k="mass-transport"]{display:block}.shape-grid:has(.sg-card[data-k="biphasic"]:hover) .sg-cap[data-k="biphasic"]{display:block}.shape-grid:has(.sg-card[data-k="drift"]:hover) .sg-cap[data-k="drift"]{display:block}.shape-grid:has(.sg-card[data-k="super-stoich"]:hover) .sg-cap[data-k="super-stoich"]{display:block}@media (max-width:640px){.sg-card{cursor:default}.sg-card:hover,.shape-grid:not(:has(.sg-card:hover)) .sg-card[data-def="1"]{border-color:var(--border);background:var(--fig-bg);box-shadow:none;transform:none}.sg-card:hover span,.shape-grid:not(:has(.sg-card:hover)) .sg-card[data-def="1"] span{color:var(--muted)}.sg-caption{min-height:0}.sg-caption .sg-cap{display:block}.sg-caption .sg-cap + .sg-cap{margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}}</style></head><body><div class="banner">Preview · <b>Reading Binding Characterization Results</b> (PR #3597) · generated from the live MDX · docs.adaptyvbio.com/guides/binding-characterization</div><div class="wrap"><p class="eyebrow">Guides</p><h1>Reading Binding Characterization Results</h1><p class="desc">How the binding assay works, how to read a sensorgram, interpret kon, koff, and KD, judge fit quality, and recognize the common curve shapes in your characterization data.</p><p>A binding experiment answers three questions about every design you send us: <b>does it bind</b> the target, <b>how tightly</b>, and <b>how fast</b>. A characterization run resolves each interaction into three numbers (<code>kon</code>, <code>koff</code>, and <code>KD</code>) from a family of sensorgrams measured across a concentration series. This guide is the field manual for that output: how the assay produces the curve, what the curve is telling you, and how much to trust the fitted numbers.</p>
+.warning{background:#fdf6ec;border-left-color:#e0a52e}@media (prefers-color-scheme:dark){.warning{background:#2a2113;border-left-color:#d9a441}}:root[data-theme=dark] .warning{background:#2a2113;border-left-color:#d9a441}:root[data-theme=light] .warning{background:#fdf6ec;border-left-color:#e0a52e}.shape-fig{display:block;max-width:340px;margin:2px 0 12px;border:1px solid var(--border);border-radius:8px;padding:8px 10px;background:var(--fig-bg)}.adbody .shape-fig svg{width:100%;height:auto;display:block}.shape-grid{margin:0 0 22px}.sg-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}@media(max-width:640px){.sg-cards{grid-template-columns:repeat(2,1fr)}}.sg-card{position:relative;display:block;border:2px solid var(--border);border-radius:10px;padding:7px 7px 5px;background:var(--fig-bg);cursor:pointer;transition:border-color .12s,box-shadow .12s,background .12s,transform .12s}.sg-radio{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;margin:0}.sg-card svg{width:100%;height:auto;display:block}.sg-card span{display:block;font-size:11.5px;font-weight:600;text-align:center;margin-top:5px;color:var(--muted);line-height:1.25}.sg-card:has(.sg-radio:checked){border-color:var(--accent);background:var(--callout-bg);box-shadow:0 0 0 3px var(--accent);transform:translateY(-2px)}.sg-card:has(.sg-radio:checked) span{color:var(--accent)}.sg-card:has(.sg-radio:focus-visible){outline:2px solid var(--accent);outline-offset:2px}.sg-caption{margin-top:16px;border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:8px;padding:14px 16px;background:var(--card-bg);min-height:72px}.sg-caption .sg-cap{display:none}.sg-sugg{display:block;margin-top:9px;padding-top:9px;border-top:1px solid var(--border);font-size:.93em}.sg-sugg strong{color:var(--accent)}.shape-grid:not(:has(.sg-card:hover)):has(.sg-card[data-k="ideal"] .sg-radio:checked) .sg-cap[data-k="ideal"]{display:block}.shape-grid:not(:has(.sg-card:hover)):has(.sg-card[data-k="no-plateau"] .sg-radio:checked) .sg-cap[data-k="no-plateau"]{display:block}.shape-grid:not(:has(.sg-card:hover)):has(.sg-card[data-k="flat-dissoc"] .sg-radio:checked) .sg-cap[data-k="flat-dissoc"]{display:block}.shape-grid:not(:has(.sg-card:hover)):has(.sg-card[data-k="square-wave"] .sg-radio:checked) .sg-cap[data-k="square-wave"]{display:block}.shape-grid:not(:has(.sg-card:hover)):has(.sg-card[data-k="mass-transport"] .sg-radio:checked) .sg-cap[data-k="mass-transport"]{display:block}.shape-grid:not(:has(.sg-card:hover)):has(.sg-card[data-k="biphasic"] .sg-radio:checked) .sg-cap[data-k="biphasic"]{display:block}.shape-grid:not(:has(.sg-card:hover)):has(.sg-card[data-k="drift"] .sg-radio:checked) .sg-cap[data-k="drift"]{display:block}.shape-grid:not(:has(.sg-card:hover)):has(.sg-card[data-k="super-stoich"] .sg-radio:checked) .sg-cap[data-k="super-stoich"]{display:block}.shape-grid:has(.sg-card[data-k="ideal"]:hover) .sg-cap[data-k="ideal"]{display:block}.shape-grid:has(.sg-card[data-k="no-plateau"]:hover) .sg-cap[data-k="no-plateau"]{display:block}.shape-grid:has(.sg-card[data-k="flat-dissoc"]:hover) .sg-cap[data-k="flat-dissoc"]{display:block}.shape-grid:has(.sg-card[data-k="square-wave"]:hover) .sg-cap[data-k="square-wave"]{display:block}.shape-grid:has(.sg-card[data-k="mass-transport"]:hover) .sg-cap[data-k="mass-transport"]{display:block}.shape-grid:has(.sg-card[data-k="biphasic"]:hover) .sg-cap[data-k="biphasic"]{display:block}.shape-grid:has(.sg-card[data-k="drift"]:hover) .sg-cap[data-k="drift"]{display:block}.shape-grid:has(.sg-card[data-k="super-stoich"]:hover) .sg-cap[data-k="super-stoich"]{display:block}</style></head><body><div class="banner">Preview · <b>Reading Binding Characterization Results</b> (PR #3597) · generated from the live MDX · docs.adaptyvbio.com/guides/binding-characterization</div><div class="wrap"><p class="eyebrow">Guides</p><h1>Reading Binding Characterization Results</h1><p class="desc">How the binding assay works, how to read a sensorgram, interpret kon, koff, and KD, judge fit quality, and recognize the common curve shapes in your characterization data.</p><p>A binding experiment answers three questions about every design you send us: <b>does it bind</b> the target, <b>how tightly</b>, and <b>how fast</b>. A characterization run resolves each interaction into three numbers (<code>kon</code>, <code>koff</code>, and <code>KD</code>) from a family of sensorgrams measured across a concentration series. This guide is the field manual for that output: how the assay produces the curve, what the curve is telling you, and how much to trust the fitted numbers.</p>
 <p>It sits alongside the <a href="/docs/experiment-types/binding">Binding experiment overview</a> and the <a href="/docs/experiment-setup/binding-data-package">Binding Data Package</a> reference, which documents every file in your download.</p>
 <h2>How the assay works</h2>
 <p>We measure binding with <b>biolayer interferometry (BLI)</b> on a Gator Bio Pro, and <b>surface plasmon resonance (SPR)</b> on a Carterra LSA XT. Both are <b>label-free</b> (nothing is attached to the target to make it visible) and both produce the same readout. We pick the platform that fits the campaign, leaning on SPR as the higher-throughput option for larger sample sets and BLI for smaller ones.</p>
@@ -5022,7 +5022,7 @@ z
 <p>Most designs give a clean 1:1 curve. When they don't, the shape tells you why, and whether the fitted <code>KD</code> still means what you think. Use this as a lookup.</p>
 <div class="shape-grid">
 <div class="sg-cards">
-<div class="sg-card" data-k="ideal" data-def="1"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<label class="sg-card" data-k="ideal"><input type="radio" name="sg-shape" checked class="sg-radio" /><?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg style="width:100%;height:auto;display:block" xmlns:xlink="http://www.w3.org/1999/xlink" width="265.6pt" height="118pt" viewBox="0 0 265.6 118" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -5427,8 +5427,8 @@ z
   </clipPath>
  </defs>
 </svg>
-<span>Ideal 1:1 (Langmuir)</span></div>
-<div class="sg-card" data-k="no-plateau"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<span>Ideal 1:1 (Langmuir)</span></label>
+<label class="sg-card" data-k="no-plateau"><input type="radio" name="sg-shape" class="sg-radio" /><?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg style="width:100%;height:auto;display:block" xmlns:xlink="http://www.w3.org/1999/xlink" width="265.6pt" height="118pt" viewBox="0 0 265.6 118" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -5784,8 +5784,8 @@ z
   </clipPath>
  </defs>
 </svg>
-<span>Never reaches plateau</span></div>
-<div class="sg-card" data-k="flat-dissoc"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<span>Never reaches plateau</span></label>
+<label class="sg-card" data-k="flat-dissoc"><input type="radio" name="sg-shape" class="sg-radio" /><?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg style="width:100%;height:auto;display:block" xmlns:xlink="http://www.w3.org/1999/xlink" width="265.6pt" height="118pt" viewBox="0 0 265.6 118" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -6127,8 +6127,8 @@ z
   </clipPath>
  </defs>
 </svg>
-<span>Flat dissociation (no come-off)</span></div>
-<div class="sg-card" data-k="square-wave"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<span>Flat dissociation (no come-off)</span></label>
+<label class="sg-card" data-k="square-wave"><input type="radio" name="sg-shape" class="sg-radio" /><?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg style="width:100%;height:auto;display:block" xmlns:xlink="http://www.w3.org/1999/xlink" width="265.6pt" height="118pt" viewBox="0 0 265.6 118" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -6507,8 +6507,8 @@ z
   </clipPath>
  </defs>
 </svg>
-<span>Fast-on / fast-off (square wave)</span></div>
-<div class="sg-card" data-k="mass-transport"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<span>Fast-on / fast-off (square wave)</span></label>
+<label class="sg-card" data-k="mass-transport"><input type="radio" name="sg-shape" class="sg-radio" /><?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg style="width:100%;height:auto;display:block" xmlns:xlink="http://www.w3.org/1999/xlink" width="265.6pt" height="118pt" viewBox="0 0 265.6 118" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -6809,8 +6809,8 @@ z
   </clipPath>
  </defs>
 </svg>
-<span>Mass-transport limitation</span></div>
-<div class="sg-card" data-k="biphasic"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<span>Mass-transport limitation</span></label>
+<label class="sg-card" data-k="biphasic"><input type="radio" name="sg-shape" class="sg-radio" /><?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg style="width:100%;height:auto;display:block" xmlns:xlink="http://www.w3.org/1999/xlink" width="265.6pt" height="118pt" viewBox="0 0 265.6 118" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -7163,8 +7163,8 @@ z
   </clipPath>
  </defs>
 </svg>
-<span>Biphasic / heterogeneous</span></div>
-<div class="sg-card" data-k="drift"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<span>Biphasic / heterogeneous</span></label>
+<label class="sg-card" data-k="drift"><input type="radio" name="sg-shape" class="sg-radio" /><?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg style="width:100%;height:auto;display:block" xmlns:xlink="http://www.w3.org/1999/xlink" width="265.6pt" height="118pt" viewBox="0 0 265.6 118" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -7469,8 +7469,8 @@ z
   </clipPath>
  </defs>
 </svg>
-<span>Non-specific binding / drift</span></div>
-<div class="sg-card" data-k="super-stoich"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<span>Non-specific binding / drift</span></label>
+<label class="sg-card" data-k="super-stoich"><input type="radio" name="sg-shape" class="sg-radio" /><?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg style="width:100%;height:auto;display:block" xmlns:xlink="http://www.w3.org/1999/xlink" width="265.6pt" height="118pt" viewBox="0 0 265.6 118" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -7935,7 +7935,7 @@ z
   </clipPath>
  </defs>
 </svg>
-<span>Super-stoichiometric (aggregation)</span></div>
+<span>Super-stoichiometric (aggregation)</span></label>
 </div>
 <div class="sg-caption">
 <div class="sg-cap" data-k="ideal" data-def="1"><strong>Ideal 1:1 (Langmuir).</strong> Smooth exponential rise to a clear plateau during association; smooth single-exponential decay during dissociation; curves fan out cleanly by concentration. Residuals are flat noise. <strong>Trust the numbers</strong>: this is the case the fit is built for.</div>
